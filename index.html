@@ -14,12 +14,16 @@
     /> -->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script src="./script.mjs" type="module"></script>
-    <script src="./modules/cookies/getSloikId.js"></script>
   </head>
   <body>
-    <div id="ingredientsBox"><!-- Generate div with Ingredient inputs--></div>
+    <div id="ingredientsBox"></div>
     <div>
-      <button id="getDishCalores">Get Calories</button>
+      <button class="controlBtns" id="addInputBtn">Add Ingredient</button>
+      <!-- Later we need to generate remove btn for each input-->
+      <button class="controlBtns" id="removeInputBtn">Remove Ingredient</button>
+    </div>
+    <div>
+      <button class="mainBtn" id="getDishCalories">Get Calories</button>
     </div>
   </body>
 </html>

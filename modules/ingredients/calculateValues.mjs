@@ -1,4 +1,5 @@
 import loc from "../../const/locators.mjs";
+import { verifyValueIsNaN } from "../../const/numbers.helper.mjs";
 
 const getNumberFromInput = (locator) =>
   Number(locator.value) > 0 ? Number(locator.value) : 0;
@@ -81,23 +82,21 @@ function getTotalDishNutritions() {
 function getDishNutritionPerHundredGrams() {
   const totalNutritions = getTotalDishNutritions();
 
-  const getCaloriesPerHundredGrams = (
-    (totalNutritions.caloriesSum / totalNutritions.weightSum) *
-    100
-  ).toFixed(0);
-  const getProteinsPerHundredGrams = (
-    (totalNutritions.proteinSum / totalNutritions.weightSum) *
-    100
-  ).toFixed(0);
-  const getFatsPerHundredGrams = (
-    (totalNutritions.fatsSum / totalNutritions.weightSum) *
-    100
-  ).toFixed(0);
-  const getCarbsPerHundredGrams = (
-    (totalNutritions.carbsSum / totalNutritions.weightSum) *
-    100
-  ).toFixed(0);
-  const getTotalWeight = totalNutritions.weightSum.toFixed(0);
+  let getCaloriesPerHundredGrams =
+    (totalNutritions.caloriesSum / totalNutritions.weightSum) * 100;
+  let getProteinsPerHundredGrams =
+    (totalNutritions.proteinSum / totalNutritions.weightSum) * 100;
+  let getFatsPerHundredGrams =
+    (totalNutritions.fatsSum / totalNutritions.weightSum) * 100;
+  let getCarbsPerHundredGrams =
+    (totalNutritions.carbsSum / totalNutritions.weightSum) * 100;
+  let getTotalWeight = totalNutritions.weightSum;
+
+  getCaloriesPerHundredGrams = verifyValueIsNaN(getCaloriesPerHundredGrams);
+  getProteinsPerHundredGrams = verifyValueIsNaN(getProteinsPerHundredGrams);
+  getFatsPerHundredGrams = verifyValueIsNaN(getFatsPerHundredGrams);
+  getCarbsPerHundredGrams = verifyValueIsNaN(getCarbsPerHundredGrams);
+  getTotalWeight = verifyValueIsNaN(getTotalWeight);
 
   const nutritionsPerHundredGrams = {
     getCaloriesPerHundredGrams,
@@ -116,6 +115,20 @@ export function renderDishNutritions() {
   const nutritionsPerHundredGrams =
     getDishNutritionPerHundredGrams().nutritionsPerHundredGrams;
 
+  const weightSum = totalNutritions.weightSum.toFixed(0);
+  const caloriesSum = totalNutritions.caloriesSum.toFixed(0);
+  const proteinSum = totalNutritions.proteinSum.toFixed(0);
+  const fatsSum = totalNutritions.fatsSum.toFixed(0);
+  const carbsSum = totalNutritions.carbsSum.toFixed(0);
+  const caloriesPerHundredGrams =
+    nutritionsPerHundredGrams.getCaloriesPerHundredGrams.toFixed(0);
+  const proteinsPerHundredGrams =
+    nutritionsPerHundredGrams.getProteinsPerHundredGrams.toFixed(0);
+  const fatsPerHundredGrams =
+    nutritionsPerHundredGrams.getFatsPerHundredGrams.toFixed(0);
+  const carbsPerHundredGrams =
+    nutritionsPerHundredGrams.getCarbsPerHundredGrams.toFixed(0);
+
   const dishNutritionsValues = document.querySelector("#dishNutritionsValues");
 
   if (dishNutritionsValues) {
@@ -127,9 +140,9 @@ export function renderDishNutritions() {
     `
     <div id="dishNutritionsValues">
       <h2>Total dish nutritions are</h2>
-      <p>Total Weight: <b>${totalNutritions.weightSum}gr</b>, Total Calories and nutritions: <b>${totalNutritions.caloriesSum}/${totalNutritions.proteinSum}/${totalNutritions.fatsSum}/${totalNutritions.carbsSum}</b></p>
-      <p>Calories per 100gr: <b>${nutritionsPerHundredGrams.getCaloriesPerHundredGrams}</b></p>
-      <p>Proteins per 100gr: <b>${nutritionsPerHundredGrams.getProteinsPerHundredGrams}</b>, Fats per 100gr: <b>${nutritionsPerHundredGrams.getFatsPerHundredGrams}</b>, Carbs per 100gr: <b>${nutritionsPerHundredGrams.getCarbsPerHundredGrams}</b></p>
+      <p>Total Weight: <b>${weightSum}gr</b>, Total Calories and nutritions: <b>${caloriesSum}/${proteinSum}/${fatsSum}/${carbsSum}</b></p>
+      <p>Calories per 100gr: <b>${caloriesPerHundredGrams}</b></p>
+      <p>Proteins per 100gr: <b>${proteinsPerHundredGrams}</b>, Fats per 100gr: <b>${fatsPerHundredGrams}</b>, Carbs per 100gr: <b>${carbsPerHundredGrams}</b></p>
     </div>
     `
   );

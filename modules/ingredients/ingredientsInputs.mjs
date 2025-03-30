@@ -70,9 +70,11 @@ loc.removeInputBtn.addEventListener("click", () => {
 
 loc.clearInputsBtn.addEventListener("click", () => {
   clearInputs();
+  renderDishNutritions();
 });
 
 loc.resetInputsBtn.addEventListener("click", () => {
   deleteAllIngredientsInputs();
   clearInputs();
+  renderDishNutritions();
 });

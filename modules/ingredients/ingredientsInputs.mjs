@@ -7,11 +7,11 @@ function generateIngredientInput() {
     "beforeEnd",
     `
     <div class='inputBox' id="inputBox_${generateId}">
-      <input class="ingredientInput mandatory" type="number" placeholder="Weight (gr)" id="weightInput_${generateId}"/>
+      <input class="ingredientInput mandatory" type="number" placeholder="Weight gr" id="weightInput_${generateId}"/>
       <input class="ingredientInput mandatory" type="number" placeholder="Calories per 100gr" id="caloriesInput_${generateId}" />
-      <input class="ingredientInput" type="number" placeholder="Protein (gr)" id="proteinInput_${generateId}"/>
-      <input class="ingredientInput" type="number" placeholder="Fats (gr)" id="fatsInput_${generateId}"/>
-      <input class="ingredientInput" type="number" placeholder="Carbohydrates (gr)" id="carbsInput_${generateId}" />
+      <input class="ingredientInput" type="number" placeholder="Protein per 100gr" id="proteinInput_${generateId}"/>
+      <input class="ingredientInput" type="number" placeholder="Fats per 100gr" id="fatsInput_${generateId}"/>
+      <input class="ingredientInput" type="number" placeholder="Carbohydrates per 100gr" id="carbsInput_${generateId}" />
     </div>
       `
   );

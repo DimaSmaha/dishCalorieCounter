@@ -3,6 +3,7 @@ import {
   getNumberFromInput,
   verifyValueIsNaN,
 } from "../../const/numbers.helper.mjs";
+import { getStringFromInput } from "../../const/string.helper.mjs";
 
 function getIngredietsNutritions() {
   const generateInputRows = loc.inputBox.length;
@@ -10,10 +11,7 @@ function getIngredietsNutritions() {
   let ingredientsArr = [];
 
   for (let i = 0; i < generateInputRows; i++) {
-    const ingredientName =
-      String(loc.ingredientInputByNumber(i).value) !== ""
-        ? String(loc.ingredientInputByNumber(i).value)
-        : "";
+    const ingredientName = getStringFromInput(loc.ingredientInputByNumber(i));
     const weight = getNumberFromInput(loc.weightInputByNumber(i));
     const calories = getNumberFromInput(loc.caloriesInputByNumber(i));
     const protein = getNumberFromInput(loc.proteinInputByNumber(i));

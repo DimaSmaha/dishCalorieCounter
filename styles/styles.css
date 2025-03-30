@@ -13,3 +13,7 @@
 .ingredientInput {
   width: 128px;
 }
+.error {
+  margin-top: 0px;
+  color: red;
+}

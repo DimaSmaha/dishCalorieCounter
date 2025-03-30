@@ -23,6 +23,8 @@ class Locators {
       document.querySelector(`#proteinInput_${n}`);
     this.fatsInputByNumber = (n) => document.querySelector(`#fatsInput_${n}`);
     this.carbsInputByNumber = (n) => document.querySelector(`#carbsInput_${n}`);
+
+    this.removeInputBtnError = document.getElementById("removeInputBtnError");
   }
 }
 

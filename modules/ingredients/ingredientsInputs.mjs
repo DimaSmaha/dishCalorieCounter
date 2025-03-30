@@ -26,7 +26,10 @@ function deleteIngredientInput() {
     getLastInput.remove();
   }
   if (generateLastId <= 1) {
-    console.log("U can not have less than 2 inputs");
+    loc.removeInputBtnError.style.display = "flex";
+    setTimeout(() => {
+      loc.removeInputBtnError.style.display = "none";
+    }, 3000);
   }
 }
 

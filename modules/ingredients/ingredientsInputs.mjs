@@ -17,6 +17,18 @@ function generateIngredientInput() {
   );
 }
 
+function deleteIngredientInput() {
+  const generateLastId = loc.inputBox.length - 1;
+
+  const getLastInput = document.getElementById(`inputBox_${generateLastId}`);
+  if (generateLastId > 1) {
+    getLastInput.remove();
+  }
+  if (generateLastId <= 1) {
+    console.log(" U can not have less than 2 inputs");
+  }
+}
+
 export function generateInitialIngredientsInputs() {
   generateIngredientInput();
   generateIngredientInput();

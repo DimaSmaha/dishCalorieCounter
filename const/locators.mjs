@@ -15,6 +15,8 @@ class Locators {
     this.ingredientInput = document.querySelector("#ingredientInput");
     this.inputBox = document.getElementsByClassName("inputBox");
 
+    this.ingredientInputByNumber = (n) =>
+      document.querySelector(`#ingredientInput_${n}`);
     this.weightInputByNumber = (n) =>
       document.querySelector(`#weightInput_${n}`);
     this.caloriesInputByNumber = (n) =>

@@ -10,13 +10,24 @@ function getIngredietsNutritions() {
   let ingredientsArr = [];
 
   for (let i = 0; i < generateInputRows; i++) {
+    const ingredientName =
+      String(loc.ingredientInputByNumber(i).value) !== ""
+        ? String(loc.ingredientInputByNumber(i).value)
+        : "";
     const weight = getNumberFromInput(loc.weightInputByNumber(i));
     const calories = getNumberFromInput(loc.caloriesInputByNumber(i));
     const protein = getNumberFromInput(loc.proteinInputByNumber(i));
     const fats = getNumberFromInput(loc.fatsInputByNumber(i));
     const carbs = getNumberFromInput(loc.carbsInputByNumber(i));
 
-    const generateObj = { weight, calories, protein, fats, carbs };
+    const generateObj = {
+      ingredientName,
+      weight,
+      calories,
+      protein,
+      fats,
+      carbs,
+    };
     ingredientsArr.push(generateObj);
   }
   return ingredientsArr;
@@ -27,6 +38,7 @@ function getIngredientNutritionsPerHundredGrams() {
 
   const nutritionsPerHundred = [];
   for (let i = 0; i < ingredientsArr.length; i++) {
+    const getTotalIngredientName = `${ingredientsArr[i].ingredientName}`;
     const getTotalWeight = ingredientsArr[i].weight;
     const getTotalCalories =
       (ingredientsArr[i].calories * ingredientsArr[i].weight) / 100;
@@ -38,6 +50,7 @@ function getIngredientNutritionsPerHundredGrams() {
       (ingredientsArr[i].carbs * ingredientsArr[i].weight) / 100;
 
     const generateObj = {
+      getTotalIngredientName,
       getTotalWeight,
       getTotalCalories,
       getTotalProtein,
@@ -54,6 +67,7 @@ function getIngredientNutritionsPerHundredGrams() {
 function getTotalDishNutritions() {
   const getIngredientsNutritions = getIngredientNutritionsPerHundredGrams();
 
+  let ingredientsList = ``;
   let weightSum = 0;
   let caloriesSum = 0;
   let proteinSum = 0;
@@ -61,6 +75,7 @@ function getTotalDishNutritions() {
   let carbsSum = 0;
 
   for (let i = 0; i < getIngredientsNutritions.length; i++) {
+    ingredientsList += `${getIngredientsNutritions[i].getTotalIngredientName}, `;
     weightSum += getIngredientsNutritions[i].getTotalWeight;
     caloriesSum += getIngredientsNutritions[i].getTotalCalories;
     proteinSum += getIngredientsNutritions[i].getTotalProtein;
@@ -69,6 +84,7 @@ function getTotalDishNutritions() {
   }
 
   const totalNutritions = {
+    ingredientsList,
     weightSum,
     caloriesSum,
     proteinSum,
@@ -115,6 +131,7 @@ export function renderDishNutritions() {
   const nutritionsPerHundredGrams =
     getDishNutritionPerHundredGrams().nutritionsPerHundredGrams;
 
+  const ingredientsList = totalNutritions.ingredientsList;
   const weightSum = totalNutritions.weightSum.toFixed(0);
   const caloriesSum = totalNutritions.caloriesSum.toFixed(0);
   const proteinSum = totalNutritions.proteinSum.toFixed(0);
@@ -139,10 +156,13 @@ export function renderDishNutritions() {
     "beforeEnd",
     `
     <div id="dishNutritionsValues">
+      <br>
       <h2>Total dish nutritions are</h2>
-      <p>Total Weight: <b>${weightSum}gr</b>, Total Calories and nutritions: <b>${caloriesSum}/${proteinSum}/${fatsSum}/${carbsSum}</b></p>
-      <p>Calories per 100gr: <b>${caloriesPerHundredGrams}</b></p>
-      <p>Proteins per 100gr: <b>${proteinsPerHundredGrams}</b>, Fats per 100gr: <b>${fatsPerHundredGrams}</b>, Carbs per 100gr: <b>${carbsPerHundredGrams}</b></p>
+      <p>Total Weight: <b>${weightSum}gr</b> <br>
+      Total Calories and nutritions: <b>${caloriesSum}/${proteinSum}/${fatsSum}/${carbsSum}</b></p>
+      <p>Calories per 100gr: <b>${caloriesPerHundredGrams}</b> <br>
+      Proteins per 100gr: <b>${proteinsPerHundredGrams}</b>, Fats per 100gr: <b>${fatsPerHundredGrams}</b>, Carbs per 100gr: <b>${carbsPerHundredGrams}</b></p>
+      <p>Your dish: <b>${ingredientsList}</b></p>
     </div>
     `
   );

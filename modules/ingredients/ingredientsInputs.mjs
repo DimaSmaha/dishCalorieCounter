@@ -8,6 +8,7 @@ function generateIngredientInput() {
     "beforeEnd",
     `
     <div class='inputBox' id="inputBox_${generateId}">
+      <input class="ingredientInput" type="string" placeholder="Ingredient Name" id="ingredientInput_${generateId}"/>
       <input class="ingredientInput mandatory" type="number" placeholder="Weight gr" id="weightInput_${generateId}"/>
       <input class="ingredientInput mandatory" type="number" placeholder="Calories per 100gr" id="caloriesInput_${generateId}" />
       <input class="ingredientInput" type="number" placeholder="Protein per 100gr" id="proteinInput_${generateId}"/>
@@ -46,6 +47,7 @@ function clearInputs() {
   const generateId = loc.inputBox.length;
 
   for (let i = 0; i < generateId; i++) {
+    loc.ingredientInputByNumber(i).value = "";
     loc.weightInputByNumber(i).value = "";
     loc.caloriesInputByNumber(i).value = "";
     loc.proteinInputByNumber(i).value = "";

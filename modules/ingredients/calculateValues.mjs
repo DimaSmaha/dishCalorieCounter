@@ -1,8 +1,8 @@
 import loc from "../../const/locators.mjs";
-import { verifyValueIsNaN } from "../../const/numbers.helper.mjs";
-
-const getNumberFromInput = (locator) =>
-  Number(locator.value) > 0 ? Number(locator.value) : 0;
+import {
+  getNumberFromInput,
+  verifyValueIsNaN,
+} from "../../const/numbers.helper.mjs";
 
 function getIngredietsNutritions() {
   const generateInputRows = loc.inputBox.length;

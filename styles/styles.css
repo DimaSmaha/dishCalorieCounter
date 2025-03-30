@@ -3,7 +3,13 @@
 }
 .controlBtns {
   margin-bottom: 16px;
+  width: 136px;
+  background-color: white;
 }
 .mainBtn {
   font-size: large;
+  background-color: lawngreen;
+}
+.ingredientInput {
+  width: 128px;
 }

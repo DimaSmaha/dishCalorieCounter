@@ -127,9 +127,9 @@ export function renderDishNutritions() {
     `
     <div id="dishNutritionsValues">
       <h2>Total dish nutritions are</h2>
-      <h3>Total Weight: ${totalNutritions.weightSum}|${nutritionsPerHundredGrams.getTotalWeight}gr, Total Calories and nutritions: ${totalNutritions.caloriesSum}/${totalNutritions.proteinSum}/${totalNutritions.fatsSum}/${totalNutritions.carbsSum}</h3>
+      <h3>Total Weight: ${totalNutritions.weightSum}gr, Total Calories and nutritions: ${totalNutritions.caloriesSum}/${totalNutritions.proteinSum}/${totalNutritions.fatsSum}/${totalNutritions.carbsSum}</h3>
       <h4>Calories per 100gr: ${nutritionsPerHundredGrams.getCaloriesPerHundredGrams}</h4>
-      <h4>Proteins per 100gr: ${nutritionsPerHundredGrams.getProteinsPerHundredGrams}, Fats per 100gr: ${nutritionsPerHundredGrams.getFatsPerHundredGrams}, Carbs per 100gr: ${nutritionsPerHundredGrams.getCaloriesPerHundredGrams}</h4>
+      <h4>Proteins per 100gr: ${nutritionsPerHundredGrams.getProteinsPerHundredGrams}, Fats per 100gr: ${nutritionsPerHundredGrams.getFatsPerHundredGrams}, Carbs per 100gr: ${nutritionsPerHundredGrams.getCarbsPerHundredGrams}</h4>
     </div>
     `
   );

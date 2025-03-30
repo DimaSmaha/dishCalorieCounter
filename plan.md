@@ -22,7 +22,9 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 
 ---
 
-- Create a single page app where by default we will have 2 lines with 5 input fields (weight/calorie per 100gr and optional nutrition inputs (protein/fat/carbs))
-- Add ability to add additional lines (additional ingridiends) and delete them as well
-- Add output button to get results
+- Create a single page app where by default we will have 2 lines with 5 input fields (weight/calorie per 100gr and optional nutrition inputs (protein/fat/carbs)) - V
+- Add ability to add additional lines (additional ingridiends) and delete them as well - V
+- Add output button to get results - V
+- Add validations for fields, and error messages
+- Add ingredient name inputs
 - Save to cookies the names of the dishes?

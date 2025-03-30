@@ -1,4 +1,5 @@
 import loc from "../../const/locators.mjs";
+import { renderDishNutritions } from "./calculateValues.mjs";
 
 function generateIngredientInput() {
   const generateId = loc.inputBox.length;
@@ -42,4 +43,5 @@ loc.addIngredientBtn.addEventListener("click", () => {
 
 loc.removeInputBtn.addEventListener("click", () => {
   deleteIngredientInput();
+  renderDishNutritions();
 });

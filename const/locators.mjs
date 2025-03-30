@@ -4,6 +4,8 @@ class Locators {
     this.getDishCaloriesBtn = document.querySelector("#getDishCalories");
     this.addIngredientBtn = document.getElementById("addInputBtn");
     this.removeInputBtn = document.getElementById("removeInputBtn");
+    this.clearInputsBtn = document.getElementById("clearInputsBtn");
+    this.resetInputsBtn = document.getElementById("resetInputsBtn");
     this.ingredietsNutritionsBox = document.querySelector(
       "#ingredietsNutritionsBox"
     );

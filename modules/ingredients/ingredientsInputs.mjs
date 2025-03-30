@@ -26,7 +26,28 @@ function deleteIngredientInput() {
     getLastInput.remove();
   }
   if (generateLastId <= 1) {
-    console.log(" U can not have less than 2 inputs");
+    console.log("U can not have less than 2 inputs");
+  }
+}
+
+function deleteAllIngredientsInputs() {
+  const generateId = loc.inputBox.length;
+
+  for (let i = generateId - 1; i > 1; i--) {
+    const getLastInput = document.getElementById(`inputBox_${i}`);
+    getLastInput.remove();
+  }
+}
+
+function clearInputs() {
+  const generateId = loc.inputBox.length;
+
+  for (let i = 0; i < generateId; i++) {
+    loc.weightInputByNumber(i).value = "";
+    loc.caloriesInputByNumber(i).value = "";
+    loc.proteinInputByNumber(i).value = "";
+    loc.fatsInputByNumber(i).value = "";
+    loc.carbsInputByNumber(i).value = "";
   }
 }
 
@@ -42,4 +63,13 @@ loc.addIngredientBtn.addEventListener("click", () => {
 loc.removeInputBtn.addEventListener("click", () => {
   deleteIngredientInput();
   renderDishNutritions();
+});
+
+loc.clearInputsBtn.addEventListener("click", () => {
+  clearInputs();
+});
+
+loc.resetInputsBtn.addEventListener("click", () => {
+  deleteAllIngredientsInputs();
+  clearInputs();
 });

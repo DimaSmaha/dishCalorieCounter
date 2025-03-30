@@ -26,5 +26,6 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Add ability to add additional lines (additional ingridiends) and delete them as well - V
 - Add output button to get results - V
 - Add validations for fields, and error messages - V
-- Add ingredient name inputs
+- Add ingredient name inputs - V
+- Create removeInputBtn separate for each ingredient
 - Save to cookies the names of the dishes?

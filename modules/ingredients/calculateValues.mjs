@@ -1,3 +1,4 @@
+import { formatIngredietsList } from "../../const/ingredientsList.helper.mjs";
 import loc from "../../const/locators.mjs";
 import {
   getNumberFromInput,
@@ -129,7 +130,7 @@ export function renderDishNutritions() {
   const nutritionsPerHundredGrams =
     getDishNutritionPerHundredGrams().nutritionsPerHundredGrams;
 
-  const ingredientsList = totalNutritions.ingredientsList;
+  const ingredientsList = formatIngredietsList(totalNutritions.ingredientsList);
   const weightSum = totalNutritions.weightSum.toFixed(0);
   const caloriesSum = totalNutritions.caloriesSum.toFixed(0);
   const proteinSum = totalNutritions.proteinSum.toFixed(0);

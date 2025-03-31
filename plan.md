@@ -35,3 +35,5 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Create export tool? (import, export body). For import add checkbox do we need to save current data - V
 - Create removeInputBtn separate for each ingredient
 - Create manual dish addition (+ Btn, popup)
+- Add description for saved Dish
+- Edit Saved Dish

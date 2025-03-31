@@ -5,7 +5,11 @@ import {
   verifyValueIsNaN,
 } from "../../const/numbers.helper.mjs";
 import { getStringFromInput } from "../../const/string.helper.mjs";
-import { saveDish } from "./saveDish.mjs";
+import {
+  setConfirmSaveDishBtn,
+  setDeclineSaveDishBtn,
+  setSaveButton,
+} from "./saveDish.mjs";
 
 function getIngredietsNutritions() {
   const generateInputRows = loc.inputBox.length;
@@ -167,55 +171,18 @@ export function renderDishNutritions() {
   );
 
   loc.saveDishBtn.style.display = "block";
-
-  loc.saveDishBtn.addEventListener("click", () => {
-    loc.saveDishBtn.style.display = "none";
-    loc.customDishNameInput.style.display = "inline-block";
-    loc.confirmSaveDishBtn.style.display = "inline-block";
-    loc.declineSaveDishBtn.style.display = "inline-block";
-  });
-
-  loc.declineSaveDishBtn.addEventListener("click", () => {
-    loc.saveDishBtn.style.display = "inline-block";
-    loc.customDishNameInput.style.display = "none";
-    loc.confirmSaveDishBtn.style.display = "none";
-    loc.declineSaveDishBtn.style.display = "none";
-  });
-
-  loc.confirmSaveDishBtn.addEventListener("click", () => {
-    if (loc.customDishNameInput.value == "") {
-      loc.noCustomNameError.style.display = "inline";
-      setTimeout(() => {
-        loc.noCustomNameError.style.display = "none";
-      }, 3000);
-      return;
-    }
-
-    const customDishName = loc.customDishNameInput.value;
-
-    saveDish({
-      customDishName,
-      weightSum,
-      caloriesSum,
-      proteinSum,
-      fatsSum,
-      carbsSum,
-      caloriesPerHundredGrams,
-      proteinsPerHundredGrams,
-      fatsPerHundredGrams,
-      caloriesPerHundredGrams,
-      ingredientsList,
-    });
-
-    loc.dishAddedNotification.style.display = "inline";
-    setTimeout(() => {
-      loc.dishAddedNotification.style.display = "none";
-    }, 3000);
-
-    loc.saveDishBtn.style.display = "inline-block";
-    loc.customDishNameInput.style.display = "none";
-    loc.confirmSaveDishBtn.style.display = "none";
-    loc.declineSaveDishBtn.style.display = "none";
-    loc.customDishNameInput.value = "";
+  setSaveButton();
+  setDeclineSaveDishBtn();
+  setConfirmSaveDishBtn({
+    weightSum,
+    caloriesSum,
+    proteinSum,
+    fatsSum,
+    carbsSum,
+    caloriesPerHundredGrams,
+    proteinsPerHundredGrams,
+    fatsPerHundredGrams,
+    caloriesPerHundredGrams,
+    ingredientsList,
   });
 }

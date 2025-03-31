@@ -6,8 +6,13 @@ window.onload = function () {
   if (document.title == "Dish Calorie Counter") {
     generateInitialIngredientsInputs();
   }
+  if (document.title == "Saved Dishes") {
+    console.log("GUT");
+  }
 };
 
-loc.getDishCaloriesBtn.addEventListener("click", () => {
-  renderDishNutritions();
-});
+if (document.title == "Dish Calorie Counter") {
+  loc.getDishCaloriesBtn.addEventListener("click", () => {
+    renderDishNutritions();
+  });
+}

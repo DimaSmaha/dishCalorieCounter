@@ -61,22 +61,24 @@ export function generateInitialIngredientsInputs() {
   generateIngredientInput();
 }
 
-loc.addIngredientBtn.addEventListener("click", () => {
-  generateIngredientInput();
-});
+if (document.title == "Dish Calorie Counter") {
+  loc.addIngredientBtn.addEventListener("click", () => {
+    generateIngredientInput();
+  });
 
-loc.removeInputBtn.addEventListener("click", () => {
-  deleteIngredientInput();
-  renderDishNutritions();
-});
+  loc.removeInputBtn.addEventListener("click", () => {
+    deleteIngredientInput();
+    renderDishNutritions();
+  });
 
-loc.clearInputsBtn.addEventListener("click", () => {
-  clearInputs();
-  renderDishNutritions();
-});
+  loc.clearInputsBtn.addEventListener("click", () => {
+    clearInputs();
+    renderDishNutritions();
+  });
 
-loc.resetInputsBtn.addEventListener("click", () => {
-  deleteAllIngredientsInputs();
-  clearInputs();
-  renderDishNutritions();
-});
+  loc.resetInputsBtn.addEventListener("click", () => {
+    deleteAllIngredientsInputs();
+    clearInputs();
+    renderDishNutritions();
+  });
+}

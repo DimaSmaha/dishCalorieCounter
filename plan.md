@@ -27,5 +27,11 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Add output button to get results - V
 - Add validations for fields, and error messages - V
 - Add ingredient name inputs - V
+
+- Create save for just created dish (add custom name) - V
+- Create separate page with all saved dishes - V
+- Create edit and delete bnts for each recipe - V
 - Create removeInputBtn separate for each ingredient
+- Create manual dish addition
 - Save to cookies the names of the dishes?
+- Create export tool?

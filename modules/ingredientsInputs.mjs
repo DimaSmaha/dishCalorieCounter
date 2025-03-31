@@ -1,5 +1,5 @@
-import loc from "../../const/locators.mjs";
-import { renderDishNutritions } from "./calculateValues.mjs";
+import loc from "../const/locators.mjs";
+import { renderDishNutritions } from "./calculateNutritionsValues.mjs";
 
 function generateIngredientInput() {
   const generateId = loc.inputBox.length;
@@ -61,22 +61,24 @@ export function generateInitialIngredientsInputs() {
   generateIngredientInput();
 }
 
-loc.addIngredientBtn.addEventListener("click", () => {
-  generateIngredientInput();
-});
+if (document.title == "Dish Calorie Counter") {
+  loc.addIngredientBtn.addEventListener("click", () => {
+    generateIngredientInput();
+  });
 
-loc.removeInputBtn.addEventListener("click", () => {
-  deleteIngredientInput();
-  renderDishNutritions();
-});
+  loc.removeInputBtn.addEventListener("click", () => {
+    deleteIngredientInput();
+    renderDishNutritions();
+  });
 
-loc.clearInputsBtn.addEventListener("click", () => {
-  clearInputs();
-  renderDishNutritions();
-});
+  loc.clearInputsBtn.addEventListener("click", () => {
+    clearInputs();
+    renderDishNutritions();
+  });
 
-loc.resetInputsBtn.addEventListener("click", () => {
-  deleteAllIngredientsInputs();
-  clearInputs();
-  renderDishNutritions();
-});
+  loc.resetInputsBtn.addEventListener("click", () => {
+    deleteAllIngredientsInputs();
+    clearInputs();
+    renderDishNutritions();
+  });
+}

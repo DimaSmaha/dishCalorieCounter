@@ -5,6 +5,11 @@ import {
   verifyValueIsNaN,
 } from "../../const/numbers.helper.mjs";
 import { getStringFromInput } from "../../const/string.helper.mjs";
+import {
+  setConfirmSaveDishBtn,
+  setDeclineSaveDishBtn,
+  setSaveButton,
+} from "./saveDish.mjs";
 
 function getIngredietsNutritions() {
   const generateInputRows = loc.inputBox.length;
@@ -126,6 +131,7 @@ function getDishNutritionPerHundredGrams() {
 }
 
 export function renderDishNutritions() {
+  const ingredientsArr = getIngredietsNutritions();
   const totalNutritions = getDishNutritionPerHundredGrams().totalNutritions;
   const nutritionsPerHundredGrams =
     getDishNutritionPerHundredGrams().nutritionsPerHundredGrams;
@@ -152,7 +158,7 @@ export function renderDishNutritions() {
   }
 
   loc.dishNutritionsBox.insertAdjacentHTML(
-    "beforeEnd",
+    "afterbegin",
     `
     <div id="dishNutritionsValues">
       <h2>Total dish nutritions are</h2>
@@ -164,4 +170,23 @@ export function renderDishNutritions() {
     </div>
     `
   );
+
+  console.log(ingredientsArr);
+
+  loc.saveDishBtn.style.display = "block";
+  setSaveButton();
+  setDeclineSaveDishBtn();
+  setConfirmSaveDishBtn({
+    weightSum,
+    caloriesSum,
+    proteinSum,
+    fatsSum,
+    carbsSum,
+    caloriesPerHundredGrams,
+    proteinsPerHundredGrams,
+    fatsPerHundredGrams,
+    carbsPerHundredGrams,
+    ingredientsList,
+    ingredientsArr,
+  });
 }

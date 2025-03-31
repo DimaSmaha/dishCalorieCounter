@@ -27,6 +27,20 @@ class Locators {
     this.carbsInputByNumber = (n) => document.querySelector(`#carbsInput_${n}`);
 
     this.removeInputBtnError = document.getElementById("removeInputBtnError");
+
+    this.saveDishBtn = document.getElementById("saveDishBtn");
+    this.confirmSaveDishBtn = document.getElementById("confirmSaveDishBtn");
+    this.declineSaveDishBtn = document.getElementById("declineSaveDishBtn");
+    this.customDishNameInput = document.getElementById("customDishNameInput");
+    this.noCustomNameError = document.getElementById("noCustomNameError");
+    this.dishAddedNotification = document.getElementById(
+      "dishAddedNotification"
+    );
+
+    this.savedDishesBox = document.getElementById("savedDishesBox");
+    this.savedDishesControlBox = document.getElementsByClassName(
+      "savedDishesControlBox"
+    );
   }
 }
 

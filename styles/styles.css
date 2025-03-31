@@ -27,3 +27,11 @@ h2 {
 .navbar {
   margin-bottom: 16px;
 }
+.cancelBtn {
+  background-color: red;
+  border: solid 2px;
+}
+.acceptBtn {
+  background-color: lime;
+  border: solid 2px;
+}

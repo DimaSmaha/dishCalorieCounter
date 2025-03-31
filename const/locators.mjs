@@ -27,6 +27,8 @@ class Locators {
     this.carbsInputByNumber = (n) => document.querySelector(`#carbsInput_${n}`);
 
     this.removeInputBtnError = document.getElementById("removeInputBtnError");
+
+    this.saveDishBtn = document.getElementById("saveDishBtn");
   }
 }
 

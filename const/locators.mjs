@@ -38,6 +38,9 @@ class Locators {
     );
 
     this.savedDishesBox = document.getElementById("savedDishesBox");
+    this.savedDishesControlBox = document.getElementsByClassName(
+      "savedDishesControlBox"
+    );
   }
 }
 

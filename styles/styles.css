@@ -34,12 +34,12 @@ h2 {
 .cancelBtn {
   background-color: red;
   border: solid 2px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 .acceptBtn {
   background-color: lime;
   border: solid 2px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 #saveDishBtn {
   margin-bottom: 16px;
@@ -51,6 +51,7 @@ h2 {
   padding-left: 12px;
   padding-right: 12px;
   margin-top: 16px;
+  margin-bottom: 8px;
   border-radius: 16px;
 }
 .dishDesciption {

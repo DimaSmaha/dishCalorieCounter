@@ -1,5 +1,5 @@
 import loc from "../const/locators.mjs";
-import { renderDishNutritions } from "./ingredients/calculateValues.mjs";
+import { renderDishNutritions } from "./calculateNutritionsValues.mjs";
 
 function generateIngredientInput() {
   const generateId = loc.inputBox.length;

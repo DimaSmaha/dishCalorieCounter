@@ -35,7 +35,23 @@
       <button class="mainBtn" id="getDishCalories">Get Calories</button>
     </div>
     <div id="ingredietsNutritionsBox"></div>
-    <div id="dishNutritionsBox"></div>
+    <div id="dishNutritionsBox">
+      <div>
+        <button id="saveDishBtn" style="display: none">Save Dish</button>
+        <input
+          id="customDishNameInput"
+          class="ingredientInput"
+          placeholder="Enter dish name"
+          style="display: none"
+        />
+        <button class="acceptBtn" id="confirmSaveDishBtn" style="display: none">
+          <b>V</b>
+        </button>
+        <button class="cancelBtn" id="declineSaveDishBtn" style="display: none">
+          <b>X</b>
+        </button>
+      </div>
+    </div>
     <div class="errorBox">
       <p class="error" id="noCustomNameError" style="display: none">
         <b> The dish name can not be empty </b>

@@ -153,7 +153,7 @@ export function renderDishNutritions() {
   }
 
   loc.dishNutritionsBox.insertAdjacentHTML(
-    "beforeEnd",
+    "afterbegin",
     `
     <div id="dishNutritionsValues">
       <h2>Total dish nutritions are</h2>
@@ -162,41 +162,36 @@ export function renderDishNutritions() {
       <p>Calories per 100gr: <b>${caloriesPerHundredGrams}</b> <br>
       Proteins per 100gr: <b>${proteinsPerHundredGrams}</b>, Fats per 100gr: <b>${fatsPerHundredGrams}</b>, Carbs per 100gr: <b>${carbsPerHundredGrams}</b></p>
       <p>Your dish: <b>${ingredientsList}</b></p>
-      <button id='saveDishBtn'>Save Dish</button>
-      <input id='customDishNameInput' class='ingredientInput' placeholder='Enter dish name' style="display: none;">
-      <button class="acceptBtn" id="confirmSaveDishBtn" style="display: none;"><b>V</b></button>
-      <button class="cancelBtn" id="declineSaveDishBtn" style="display: none;"><b>X</b></button
     </div>
     `
   );
-  const saveDishBtn = document.getElementById("saveDishBtn");
-  const customDishNameInput = document.getElementById("customDishNameInput");
-  const confirmSaveDishBtn = document.getElementById("confirmSaveDishBtn");
-  const declineSaveDishBtn = document.getElementById("declineSaveDishBtn");
 
-  saveDishBtn.addEventListener("click", () => {
-    saveDishBtn.style.display = "none";
-    customDishNameInput.style.display = "inline-block";
-    confirmSaveDishBtn.style.display = "inline-block";
-    declineSaveDishBtn.style.display = "inline-block";
+  loc.saveDishBtn.style.display = "block";
+
+  loc.saveDishBtn.addEventListener("click", () => {
+    loc.saveDishBtn.style.display = "none";
+    loc.customDishNameInput.style.display = "inline-block";
+    loc.confirmSaveDishBtn.style.display = "inline-block";
+    loc.declineSaveDishBtn.style.display = "inline-block";
   });
 
-  declineSaveDishBtn.addEventListener("click", () => {
-    saveDishBtn.style.display = "inline-block";
-    customDishNameInput.style.display = "none";
-    confirmSaveDishBtn.style.display = "none";
-    declineSaveDishBtn.style.display = "none";
+  loc.declineSaveDishBtn.addEventListener("click", () => {
+    loc.saveDishBtn.style.display = "inline-block";
+    loc.customDishNameInput.style.display = "none";
+    loc.confirmSaveDishBtn.style.display = "none";
+    loc.declineSaveDishBtn.style.display = "none";
   });
 
-  confirmSaveDishBtn.addEventListener("click", () => {
-    if (customDishNameInput.value == "") {
+  loc.confirmSaveDishBtn.addEventListener("click", () => {
+    if (loc.customDishNameInput.value == "") {
       loc.noCustomNameError.style.display = "inline";
       setTimeout(() => {
         loc.noCustomNameError.style.display = "none";
       }, 3000);
+      return;
     }
 
-    const customDishName = customDishNameInput.value;
+    const customDishName = loc.customDishNameInput.value;
 
     saveDish({
       customDishName,
@@ -217,10 +212,10 @@ export function renderDishNutritions() {
       loc.dishAddedNotification.style.display = "none";
     }, 3000);
 
-    saveDishBtn.style.display = "inline-block";
-    customDishNameInput.style.display = "none";
-    confirmSaveDishBtn.style.display = "none";
-    declineSaveDishBtn.style.display = "none";
-    customDishNameInput.value = "";
+    loc.saveDishBtn.style.display = "inline-block";
+    loc.customDishNameInput.style.display = "none";
+    loc.confirmSaveDishBtn.style.display = "none";
+    loc.declineSaveDishBtn.style.display = "none";
+    loc.customDishNameInput.value = "";
   });
 }

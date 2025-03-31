@@ -3,8 +3,10 @@ import loc from "../const/locators.mjs";
 import { getCookie, setCookie } from "./cookies/cookies.mjs";
 
 export const renderSavedDishes = () => {
-  let dishes = getCookie("savedDishes");
+  document.getElementById(`savedDishesBox`).innerHTML = "";
 
+  let dishes = getCookie("savedDishes");
+  console.log(dishes);
   // if length 0, make empty state
   for (let i = 0; i < dishes.length; i++) {
     let formulateIngredients = "";

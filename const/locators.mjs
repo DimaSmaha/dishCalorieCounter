@@ -41,6 +41,13 @@ class Locators {
     this.savedDishesControlBox = document.getElementsByClassName(
       "savedDishesControlBox"
     );
+
+    this.importSavedDishesDataBtn = document.getElementById(
+      "importSavedDishesDataBtn"
+    );
+    this.exportSavedDishesDataBtn = document.getElementById(
+      "exportSavedDishesDataBtn"
+    );
   }
 }
 

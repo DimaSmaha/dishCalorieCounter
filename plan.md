@@ -32,6 +32,6 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Create separate page with all saved dishes - V
 - Create edit and delete bnts for each recipe - V
 - Save to cookies the names of the dishes - V
+- Create export tool? (import, export body). For import add checkbox do we need to save current data - V
 - Create removeInputBtn separate for each ingredient
 - Create manual dish addition (+ Btn, popup)
-- Create export tool? (import, export body). For import add checkbox do we need to save current data

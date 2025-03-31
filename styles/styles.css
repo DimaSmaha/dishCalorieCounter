@@ -44,3 +44,20 @@ h2 {
 #saveDishBtn {
   margin-bottom: 16px;
 }
+.savedDish {
+  height: 124px;
+  border: 1px solid black;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 16px;
+  border-radius: 16px;
+}
+.dishDesciption {
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+.dishTitle {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}

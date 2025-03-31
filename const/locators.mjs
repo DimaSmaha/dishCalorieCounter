@@ -36,6 +36,8 @@ class Locators {
     this.dishAddedNotification = document.getElementById(
       "dishAddedNotification"
     );
+
+    this.savedDishesBox = document.getElementById("savedDishesBox");
   }
 }
 

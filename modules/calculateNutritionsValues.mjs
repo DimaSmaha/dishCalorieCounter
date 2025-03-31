@@ -131,6 +131,7 @@ function getDishNutritionPerHundredGrams() {
 }
 
 export function renderDishNutritions() {
+  const ingredientsArr = getIngredietsNutritions();
   const totalNutritions = getDishNutritionPerHundredGrams().totalNutritions;
   const nutritionsPerHundredGrams =
     getDishNutritionPerHundredGrams().nutritionsPerHundredGrams;
@@ -170,6 +171,8 @@ export function renderDishNutritions() {
     `
   );
 
+  console.log(ingredientsArr);
+
   loc.saveDishBtn.style.display = "block";
   setSaveButton();
   setDeclineSaveDishBtn();
@@ -182,7 +185,8 @@ export function renderDishNutritions() {
     caloriesPerHundredGrams,
     proteinsPerHundredGrams,
     fatsPerHundredGrams,
-    caloriesPerHundredGrams,
+    carbsPerHundredGrams,
     ingredientsList,
+    ingredientsArr,
   });
 }

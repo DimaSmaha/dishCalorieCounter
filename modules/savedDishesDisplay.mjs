@@ -22,7 +22,7 @@ export const renderSavedDishes = () => {
       <div class="savedDish" id="savedDish_${i}">
           <h4 class="dishTitle">${dishes[i].customDishName}</h4>
           <p class="dishDesciption">
-          Ingrediets: ${dishes[i].ingredientsList}
+          Ingredients: ${dishes[i].ingredientsList} ${dishes[i].description}
           <br>
           Nutritions per 100grams (P/F/C): ${dishes[i].caloriesPerHundredGrams}cal/${dishes[i].proteinsPerHundredGrams}/${dishes[i].fatsPerHundredGrams}/${dishes[i].carbsPerHundredGrams}. 
           <br>

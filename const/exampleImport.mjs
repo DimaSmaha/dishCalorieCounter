@@ -37,5 +37,6 @@ export const exampleImportDish = [
       },
     ],
     customDishName: "Cheese Cocoa",
+    description: "",
   },
 ];

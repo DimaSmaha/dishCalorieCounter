@@ -54,7 +54,9 @@ export const setConfirmSaveDishBtn = (saveDishObj) => {
     }
 
     const customDishName = loc.customDishNameInput.value;
+
     saveDishObj.customDishName = customDishName;
+    saveDishObj.description = "";
 
     saveDish(saveDishObj);
     showSaveBtn();

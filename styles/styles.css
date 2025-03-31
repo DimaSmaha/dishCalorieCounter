@@ -3,11 +3,14 @@
 }
 .controlBtns {
   margin-bottom: 16px;
+  margin-bottom: 16px;
   width: 136px;
   background-color: white;
 }
 .mainBtn {
-  font-size: large;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: x-large;
   background-color: lawngreen;
 }
 .ingredientInput {
@@ -16,4 +19,8 @@
 .error {
   margin-top: 0px;
   color: red;
+}
+#dishNutritionsValues,
+h2 {
+  margin-top: 16px;
 }

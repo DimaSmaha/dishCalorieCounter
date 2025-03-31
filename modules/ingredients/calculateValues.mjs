@@ -155,7 +155,6 @@ export function renderDishNutritions() {
     "beforeEnd",
     `
     <div id="dishNutritionsValues">
-      <br>
       <h2>Total dish nutritions are</h2>
       <p>Total Weight: <b>${weightSum}gr</b> <br>
       Total Calories and nutritions: <b>${caloriesSum}/${proteinSum}/${fatsSum}/${carbsSum}</b></p>

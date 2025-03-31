@@ -20,6 +20,10 @@
   margin-top: 0px;
   color: red;
 }
+.notification {
+  margin-top: 0px;
+  color: limegreen;
+}
 #dishNutritionsValues,
 h2 {
   margin-top: 16px;
@@ -30,8 +34,13 @@ h2 {
 .cancelBtn {
   background-color: red;
   border: solid 2px;
+  margin-bottom: 16px;
 }
 .acceptBtn {
   background-color: lime;
   border: solid 2px;
+  margin-bottom: 16px;
+}
+#saveDishBtn {
+  margin-bottom: 16px;
 }

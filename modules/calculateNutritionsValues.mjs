@@ -189,8 +189,17 @@ export function renderDishNutritions() {
   });
 
   confirmSaveDishBtn.addEventListener("click", () => {
-    customDishNameInput.value;
+    if (customDishNameInput.value == "") {
+      loc.noCustomNameError.style.display = "inline";
+      setTimeout(() => {
+        loc.noCustomNameError.style.display = "none";
+      }, 3000);
+    }
+
+    const customDishName = customDishNameInput.value;
+
     saveDish({
+      customDishName,
       weightSum,
       caloriesSum,
       proteinSum,
@@ -202,5 +211,16 @@ export function renderDishNutritions() {
       caloriesPerHundredGrams,
       ingredientsList,
     });
+
+    loc.dishAddedNotification.style.display = "inline";
+    setTimeout(() => {
+      loc.dishAddedNotification.style.display = "none";
+    }, 3000);
+
+    saveDishBtn.style.display = "inline-block";
+    customDishNameInput.style.display = "none";
+    confirmSaveDishBtn.style.display = "none";
+    declineSaveDishBtn.style.display = "none";
+    customDishNameInput.value = "";
   });
 }

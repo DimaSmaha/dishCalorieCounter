@@ -1,3 +1,4 @@
+import { formatIngredietsList } from "../const/ingredientsList.helper.mjs";
 import loc from "../const/locators.mjs";
 import { getCookie } from "./cookies/cookies.mjs";
 
@@ -11,6 +12,8 @@ export const renderSavedDishes = () => {
       formulateIngredients += `${dishes[i].ingredientsArr[ii].ingredientName} - ${dishes[i].ingredientsArr[ii].weight}gr, `;
     }
 
+    formulateIngredients = formatIngredietsList(formulateIngredients);
+
     loc.savedDishesBox.insertAdjacentHTML(
       "beforeend",
       `
@@ -19,12 +22,12 @@ export const renderSavedDishes = () => {
           <p class="dishDesciption">
           Ingrediets: ${dishes[i].ingredientsList}
           <br>
-          Nutritions per 100grams ${dishes[i].caloriesPerHundredGrams}/${dishes[i].proteinsPerHundredGrams}/${dishes[i].fatsPerHundredGrams}/${dishes[i].carbsPerHundredGrams}. 
+          Nutritions per 100grams (P/F/C): ${dishes[i].caloriesPerHundredGrams}cal/${dishes[i].proteinsPerHundredGrams}/${dishes[i].fatsPerHundredGrams}/${dishes[i].carbsPerHundredGrams}. 
           <br>
           <br>
-          Ingredients list: ${formulateIngredients}. Total ${dishes[i].weightSum}gr
+          Ingredients list: ${formulateIngredients} Total weight ${dishes[i].weightSum}gr.
           <br>
-          Nutritions with this ingredients: ${dishes[i].caloriesSum}/${dishes[i].proteinSum}/${dishes[i].fatsSum}/${dishes[i].carbsSum}
+          Total nutritions with this ingredients (P/F/C): ${dishes[i].caloriesSum}cal/${dishes[i].proteinSum}/${dishes[i].fatsSum}/${dishes[i].carbsSum}
           </p>
       </div>
       `

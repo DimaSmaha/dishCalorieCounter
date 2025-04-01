@@ -42,8 +42,8 @@ export const renderSavedDishes = () => {
           </p>
       </div>
       <div class="savedDishesControlBox" id="savedDishesControlBox_${i}">
-          <button class="savedDishesControlBtn" id="editDescriptionForSavedDish_${i}">EditDescription</button>
           <button class="savedDishesControlBtn" id="editSavedDish_${i}">Edit</button>
+          <button class="savedDishesControlBtn" id="editDescriptionForSavedDish_${i}">EditDescription</button>
           <input id="editDescriptionForSavedDishInput_${i}" class="ingredientInput" placeholder="Description" style="display: none" value='${dishes[i].description}'/>
           <button class="acceptBtn" id="confirmDescriptionForSavedBtn_${i}" style="display: none"><b>V</b></button>
           <button class="cancelBtn" id="declineDescriptionForSavedBtn_${i}" style="display: none"><b>X</b></button>

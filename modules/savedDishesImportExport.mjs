@@ -29,7 +29,7 @@ const importData = () => {
             exampleImportDish
           )}</textarea>
           <button class='acceptBtn' id='acceptTextAreaBtn'>V</button>
-          <input type="checkbox" id='saveOldValuesCheckbox' name='saveOldValuesCheckbox'>
+          <input type="checkbox" checked id='saveOldValuesCheckbox' name='saveOldValuesCheckbox'>
           <label for='saveOldValuesCheckbox'>Save old dishes</label>
           <button class='cancelBtn' id='closeTextAreaBtn'>X</button>
       <div>

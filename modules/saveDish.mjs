@@ -1,4 +1,4 @@
-import loc from "../const/locators.mjs";
+import loc from "./../const/locators.mjs";
 import { getCookie, setCookie } from "./cookies/cookies.mjs";
 
 export const saveDish = (dishObj) => {

@@ -1,6 +1,6 @@
-import { exampleImportDish } from "../const/exampleImport.mjs";
-import loc from "../const/locators.mjs";
-import { verifyPropertyOfObject } from "../const/verifyProperties.mjs";
+import { exampleImportDish } from "./../const/exampleImport.mjs";
+import loc from "./../const/locators.mjs";
+import { verifyPropertyOfObject } from "./../const/verifyProperties.mjs";
 import { getCookie, setCookie } from "./cookies/cookies.mjs";
 import { renderSavedDishes } from "./savedDishesDisplay.mjs";
 

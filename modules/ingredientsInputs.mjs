@@ -1,4 +1,4 @@
-import loc from "../const/locators.mjs";
+import loc from "./../const/locators.mjs";
 import { renderDishNutritions } from "./calculateNutritionsValues.mjs";
 
 function generateIngredientInput() {

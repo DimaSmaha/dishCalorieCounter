@@ -1,10 +1,10 @@
-import { formatIngredietsList } from "../../const/ingredientsList.helper.mjs";
-import loc from "../../const/locators.mjs";
+import { formatIngredietsList } from "./../const/ingredientsList.helper.mjs";
+import loc from "./../const/locators.mjs";
 import {
   getNumberFromInput,
   verifyValueIsNaN,
-} from "../../const/numbers.helper.mjs";
-import { getStringFromInput } from "../../const/string.helper.mjs";
+} from "./../const/numbers.helper.mjs";
+import { getStringFromInput } from "./../const/string.helper.mjs";
 import {
   setConfirmSaveDishBtn,
   setDeclineSaveDishBtn,

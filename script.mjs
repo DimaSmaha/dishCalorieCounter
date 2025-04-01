@@ -1,4 +1,4 @@
-import loc from "/const/locators.mjs";
+import loc from "./const/locators.mjs";
 import { renderDishNutritions } from "./modules/calculateNutritionsValues.mjs";
 import { generateInitialIngredientsInputs } from "./modules/ingredientsInputs.mjs";
 import { renderSavedDishes } from "./modules/savedDishesDisplay.mjs";

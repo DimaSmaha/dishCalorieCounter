@@ -42,13 +42,16 @@ export const renderSavedDishes = () => {
           </p>
       </div>
       <div class="savedDishesControlBox" id="savedDishesControlBox_${i}">
+          <button class="savedDishesControlBtn" id="editDescriptionForSavedDish_${i}">EditDescription</button>
+          <input id="editDescriptionForSavedDishInput_${i}" class="ingredientInput" placeholder="Description" style="display: none" value='${dishes[i].description}'/>
+          <button class="acceptBtn" id="confirmDescriptionForSavedBtn_${i}" style="display: none"><b>V</b></button>
+          <button class="cancelBtn" id="declineDescriptionForSavedBtn_${i}" style="display: none"><b>X</b></button>
+          <div class="error" id="emptyDescriptionInputError_${i}" style="display: none">
+            <b>The input can not be empty<b>
+          </div>
           <button class="savedDishesControlBtn" id="deleteSavedDish_${i}">DEL</button>
-          <button class="acceptBtn" id="confirmDeleteDishBtn_${i}" style="display: none">
-          <b>V</b>
-          </button>
-          <button class="cancelBtn" id="declineDeleteDishBtn_${i}" style="display: none">
-          <b>X</b>
-          </button>
+          <button class="acceptBtn" id="confirmDeleteDishBtn_${i}" style="display: none"><b>V</b></button>
+          <button class="cancelBtn" id="declineDeleteDishBtn_${i}" style="display: none"><b>X</b></button>
       </div>
       `
     );
@@ -82,6 +85,45 @@ const setDeleteSavedDishesBtns = () => {
         document.getElementById(`declineDeleteDishBtn_${i}`).style.display =
           "none";
       });
+
+    //
+    document
+      .getElementById(`editDescriptionForSavedDish_${i}`)
+      .addEventListener("click", () => {
+        document.getElementById(
+          `editDescriptionForSavedDish_${i}`
+        ).style.display = "none";
+        document.getElementById(
+          `confirmDescriptionForSavedBtn_${i}`
+        ).style.display = "inline-block";
+        document.getElementById(
+          `declineDescriptionForSavedBtn_${i}`
+        ).style.display = "inline-block";
+        document.getElementById(
+          `editDescriptionForSavedDishInput_${i}`
+        ).style.display = "inline-block";
+      });
+    document
+      .getElementById(`confirmDescriptionForSavedBtn_${i}`)
+      .addEventListener("click", () => {
+        editDishByNumber(i);
+      });
+    document
+      .getElementById(`declineDescriptionForSavedBtn_${i}`)
+      .addEventListener("click", () => {
+        document.getElementById(
+          `editDescriptionForSavedDish_${i}`
+        ).style.display = "inline-block";
+        document.getElementById(
+          `confirmDescriptionForSavedBtn_${i}`
+        ).style.display = "none";
+        document.getElementById(
+          `declineDescriptionForSavedBtn_${i}`
+        ).style.display = "none";
+        document.getElementById(
+          `editDescriptionForSavedDishInput_${i}`
+        ).style.display = "none";
+      });
   }
 };
 
@@ -90,6 +132,30 @@ const deleteDishByNumber = (i) => {
 
   let dishes = getCookie("savedDishes");
   dishes.splice(i, 1);
+  setCookie("savedDishes", dishes);
+
+  renderSavedDishes();
+};
+
+const editDishByNumber = (i) => {
+  const inputValue = document.getElementById(
+    `editDescriptionForSavedDishInput_${i}`
+  ).value;
+
+  if (inputValue == "") {
+    document.getElementById(`emptyDescriptionInputError_${i}`).style.display =
+      "inline";
+    setTimeout(() => {
+      document.getElementById(`emptyDescriptionInputError_${i}`).style.display =
+        "none";
+    }, 3000);
+    return;
+  }
+
+  let dishes = getCookie("savedDishes");
+
+  dishes[i].description = inputValue;
+
   setCookie("savedDishes", dishes);
 
   renderSavedDishes();

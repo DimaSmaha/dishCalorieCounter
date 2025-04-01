@@ -1,4 +1,5 @@
 import loc from "./../const/locators.mjs";
+import { renderDishNutritions } from "./calculateNutritionsValues.mjs";
 import { getCookie, setCookie } from "./cookies/cookies.mjs";
 
 export const saveDish = (dishObj) => {
@@ -43,27 +44,32 @@ export const setDeclineSaveDishBtn = () => {
   });
 };
 
-export const setConfirmSaveDishBtn = (saveDishObj) => {
-  loc.confirmSaveDishBtn.addEventListener("click", () => {
-    if (loc.customDishNameInput.value == "") {
-      loc.noCustomNameError.style.display = "inline";
-      setTimeout(() => {
-        loc.noCustomNameError.style.display = "none";
-      }, 3000);
-      return;
-    }
-
-    const customDishName = loc.customDishNameInput.value;
-
-    saveDishObj.customDishName = customDishName;
-    saveDishObj.description = "";
-
-    saveDish(saveDishObj);
-    showSaveBtn();
-
-    loc.dishAddedNotification.style.display = "inline";
+const confirmSaveDish = (saveDishObj) => {
+  if (loc.customDishNameInput.value == "") {
+    loc.noCustomNameError.style.display = "inline";
     setTimeout(() => {
-      loc.dishAddedNotification.style.display = "none";
+      loc.noCustomNameError.style.display = "none";
     }, 3000);
+    return;
+  }
+
+  const customDishName = loc.customDishNameInput.value;
+
+  saveDishObj.customDishName = customDishName;
+  saveDishObj.description = "";
+
+  saveDish(saveDishObj);
+  showSaveBtn();
+
+  loc.dishAddedNotification.style.display = "inline";
+  setTimeout(() => {
+    loc.dishAddedNotification.style.display = "none";
+  }, 3000);
+};
+
+export const setConfirmSaveDishBtn = () => {
+  loc.confirmSaveDishBtn.addEventListener("click", () => {
+    const dishObj = renderDishNutritions();
+    confirmSaveDish(dishObj);
   });
 };

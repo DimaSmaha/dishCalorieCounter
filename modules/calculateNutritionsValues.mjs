@@ -174,9 +174,8 @@ export function renderDishNutritions() {
   console.log(ingredientsArr);
 
   loc.saveDishBtn.style.display = "block";
-  setSaveButton();
-  setDeclineSaveDishBtn();
-  setConfirmSaveDishBtn({
+
+  return {
     weightSum,
     caloriesSum,
     proteinSum,
@@ -188,5 +187,5 @@ export function renderDishNutritions() {
     carbsPerHundredGrams,
     ingredientsList,
     ingredientsArr,
-  });
+  };
 }

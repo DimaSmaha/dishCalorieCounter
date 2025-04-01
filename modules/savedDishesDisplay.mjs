@@ -6,8 +6,17 @@ export const renderSavedDishes = () => {
   document.getElementById(`savedDishesBox`).innerHTML = "";
 
   let dishes = getCookie("savedDishes");
-  console.log(dishes);
-  // if length 0, make empty state
+
+  if (dishes == undefined) {
+    loc.savedDishesBox.insertAdjacentHTML(
+      "beforeend",
+      `
+      <h3>Currently you didnt save any dishes</h3>
+      `
+    );
+    return;
+  }
+
   for (let i = 0; i < dishes.length; i++) {
     let formulateIngredients = "";
     for (let ii = 0; ii < dishes[i].ingredientsArr.length; ii++) {

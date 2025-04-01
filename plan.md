@@ -37,3 +37,5 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Edit Saved Dish - V
 - Create manual dish addition (+ Btn, popup) - V
 - Create removeInputBtn separate for each ingredient - V
+
+- TODO in the future or never, refactor

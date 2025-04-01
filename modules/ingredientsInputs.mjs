@@ -90,6 +90,8 @@ if (document.title == "Dish Calorie Counter") {
   });
 }
 
+// There was setting multiple event listeners on one element
+// And because of that the code was running twice
 // export function setDeleteInputBtns() {
 //   for (let i = 0; i < loc.inputBox.length; i++) {
 //     document
@@ -129,21 +131,22 @@ if (document.title == "Dish Calorie Counter") {
 export function setDeleteInputBtns() {
   // I got it from chatgpt
   for (let i = 0; i < loc.inputBox.length; i++) {
+    const removeBtn = document.getElementById(`removeIngredientInput_${i}`);
     const confirmBtn = document.getElementById(
       `confirmRemoveIngredientInput_${i}`
     );
-    const removeBtn = document.getElementById(`removeIngredientInput_${i}`);
     const declineBtn = document.getElementById(
       `declineRemoveIngredientInput_${i}`
     );
 
-    if (!confirmBtn || !removeBtn || !declineBtn) continue;
-
-    // Remove previous event listeners by cloning the elements
+    // If we cloneNode, it removes any previous addEventListeners
     const newConfirmBtn = confirmBtn.cloneNode(true);
     const newRemoveBtn = removeBtn.cloneNode(true);
     const newDeclineBtn = declineBtn.cloneNode(true);
 
+    // We set back the element locator but now clear from listeners,
+    // so we will make sure that on each element just one event listener
+    // here we just call parentElement(parentNode) and replacing the child(confirmBtn) with new clear node (newConfirmBtn)
     confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
     removeBtn.parentNode.replaceChild(newRemoveBtn, removeBtn);
     declineBtn.parentNode.replaceChild(newDeclineBtn, declineBtn);
@@ -197,6 +200,12 @@ function deleteInputByNumber(i) {
     recalculateIngredientInputs(getInputValues);
   }
   if (getInputsNum <= 1) {
+    document.getElementById(`removeIngredientInput_${i}`).style.display =
+      "inline-block";
+    document.getElementById(`confirmRemoveIngredientInput_${i}`).style.display =
+      "none";
+    document.getElementById(`declineRemoveIngredientInput_${i}`).style.display =
+      "none";
     loc.removeInputBtnError.style.display = "flex";
     setTimeout(() => {
       loc.removeInputBtnError.style.display = "none";

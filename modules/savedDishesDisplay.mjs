@@ -43,6 +43,7 @@ export const renderSavedDishes = () => {
       </div>
       <div class="savedDishesControlBox" id="savedDishesControlBox_${i}">
           <button class="savedDishesControlBtn" id="editDescriptionForSavedDish_${i}">EditDescription</button>
+          <button class="savedDishesControlBtn" id="editSavedDish_${i}">Edit</button>
           <input id="editDescriptionForSavedDishInput_${i}" class="ingredientInput" placeholder="Description" style="display: none" value='${dishes[i].description}'/>
           <button class="acceptBtn" id="confirmDescriptionForSavedBtn_${i}" style="display: none"><b>V</b></button>
           <button class="cancelBtn" id="declineDescriptionForSavedBtn_${i}" style="display: none"><b>X</b></button>
@@ -106,7 +107,7 @@ const setDeleteSavedDishesBtns = () => {
     document
       .getElementById(`confirmDescriptionForSavedBtn_${i}`)
       .addEventListener("click", () => {
-        editDishByNumber(i);
+        editDishDescriptionByNumber(i);
       });
     document
       .getElementById(`declineDescriptionForSavedBtn_${i}`)
@@ -124,6 +125,13 @@ const setDeleteSavedDishesBtns = () => {
           `editDescriptionForSavedDishInput_${i}`
         ).style.display = "none";
       });
+
+    //
+    document
+      .getElementById(`editSavedDish_${i}`)
+      .addEventListener("click", () => {
+        editDishByNumber(i);
+      });
   }
 };
 
@@ -137,7 +145,7 @@ const deleteDishByNumber = (i) => {
   renderSavedDishes();
 };
 
-const editDishByNumber = (i) => {
+const editDishDescriptionByNumber = (i) => {
   const inputValue = document.getElementById(
     `editDescriptionForSavedDishInput_${i}`
   ).value;
@@ -159,4 +167,41 @@ const editDishByNumber = (i) => {
   setCookie("savedDishes", dishes);
 
   renderSavedDishes();
+};
+
+const editDishByNumber = (i) => {
+  if (document.getElementById("textAreaBox")) {
+    return;
+  }
+
+  const data = getCookie("savedDishes");
+  let textAreaValue = "";
+
+  document.querySelector(".tools").insertAdjacentHTML(
+    "beforeend",
+    `
+      <div id='textAreaBox'>
+          <textarea id='textArea'>${JSON.stringify(data[i])}</textarea>
+          <button class='acceptBtn' id='acceptTextAreaBtn'>V</button>
+          <button class='cancelBtn' id='closeTextAreaBtn'>X</button>
+      <div>
+      `
+  );
+
+  document.getElementById("closeTextAreaBtn").addEventListener("click", () => {
+    document.getElementById("textAreaBox").remove();
+  });
+
+  document.getElementById("acceptTextAreaBtn").addEventListener("click", () => {
+    textAreaValue = document.getElementById("textArea").value;
+
+    //todo for later, maybe never, add validation
+
+    data[i] = JSON.parse(textAreaValue.trim());
+
+    document.getElementById("textAreaBox").remove();
+
+    setCookie("savedDishes", data);
+    renderSavedDishes();
+  });
 };

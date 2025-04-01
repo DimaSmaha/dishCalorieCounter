@@ -36,4 +36,4 @@ Also as an idea we can make API call to 3rd party resource and search for this i
 - Add description for saved Dish - V
 - Edit Saved Dish - V
 - Create manual dish addition (+ Btn, popup) - V
-- Create removeInputBtn separate for each ingredient
+- Create removeInputBtn separate for each ingredient - V

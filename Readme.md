@@ -6,3 +6,5 @@ But check my features:
 - Auto nutritions per hundred grams
 - Saving the dishes nutritions for later
 - Import/Export dishes
+
+https://dimasmaha.github.io/dishCalorieCounter/index.html
